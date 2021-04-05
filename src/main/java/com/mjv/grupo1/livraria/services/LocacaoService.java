@@ -61,6 +61,7 @@ public class LocacaoService {
 				locacao.addItem(item);
 			}
 		}
+		locacao.setStatus(LocacaoStatus.EFETIVADA);
 		locRepository.save(locacao);
 	}
 	
@@ -71,6 +72,9 @@ public class LocacaoService {
 		for (LocacaoItem i : locacao.getItens()) {
 			Livro livro = livroService.buscarLivro(i.getLivro().getTitulo());
 			livro.incrementarExemplares();
+			
+			if (LocalDate.now().isAfter(i.getDataPrevisaoEntrega()))
+				locacao.setValorTotal(i.getValorLocacao() + (i.getValorDiaria() * calcularDiarias(i.getDataPrevisaoEntrega(), LocalDate.now())));
 			
 			livroRepository.save(livro);
 		}
