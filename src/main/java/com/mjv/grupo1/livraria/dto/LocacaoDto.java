@@ -1,0 +1,46 @@
+package com.mjv.grupo1.livraria.dto;
+
+import java.time.LocalDate;
+import java.util.List;
+
+public class LocacaoDto {
+	private LocalDate dataAgendamento;
+	private LocalDate dataRetirada;
+	private Integer idCadastro;
+	private String cpf;
+	private List<LocacaoItemDto> itens;
+	
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public LocalDate getDataRetirada() {
+		return dataRetirada;
+	}
+	public void setDataRetirada(LocalDate dataRetirada) {
+		this.dataRetirada = dataRetirada;
+	}
+	public LocalDate getDataAgendamento() {
+		return dataAgendamento;
+	}
+	public void setDataAgendamento(LocalDate dataAgendamento) {
+		this.dataAgendamento = dataAgendamento;
+	}
+	public Integer getIdCadastro() {
+		return idCadastro;
+	}
+	public void setIdCadastro(Integer idCadastro) {
+		this.idCadastro = idCadastro;
+	}
+	public List<LocacaoItemDto> getItens() {
+		return itens;
+	}
+	public void setItens(List<LocacaoItemDto> itens) {
+		this.itens = itens;
+	}
+	
+}
+	
