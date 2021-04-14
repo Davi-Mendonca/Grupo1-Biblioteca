@@ -1,4 +1,4 @@
-package com.mjv.grupo1.livraria.model.sale;
+package com.mjv.grupo1.livraria.model.rental;
 
 public enum LocacaoStatus {
 

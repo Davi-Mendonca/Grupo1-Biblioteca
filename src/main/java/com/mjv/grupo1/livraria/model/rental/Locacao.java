@@ -1,4 +1,4 @@
-package com.mjv.grupo1.livraria.model.sale;
+package com.mjv.grupo1.livraria.model.rental;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

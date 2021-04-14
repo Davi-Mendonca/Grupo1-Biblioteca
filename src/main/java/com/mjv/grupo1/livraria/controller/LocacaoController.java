@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mjv.grupo1.livraria.dto.LocacaoDto;
-import com.mjv.grupo1.livraria.model.sale.Locacao;
+import com.mjv.grupo1.livraria.model.rental.Locacao;
 import com.mjv.grupo1.livraria.services.LocacaoService;
 
 import io.swagger.annotations.ApiOperation;
