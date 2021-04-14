@@ -6,17 +6,16 @@ import java.util.List;
 public class LocacaoDto {
 	private LocalDate dataAgendamento;
 	private LocalDate dataRetirada;
-	private Integer idCadastro;
 	private String cpf;
 	private List<LocacaoItemDto> itens;
 	
-	
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	public String getCpf() {
+	public String getCpfCadastro() {
 		return cpf;
 	}
+	public void setCpfCadastro(String cpfCadastro) {
+		this.cpf = cpfCadastro;
+	}
+
 	public LocalDate getDataRetirada() {
 		return dataRetirada;
 	}
@@ -29,12 +28,7 @@ public class LocacaoDto {
 	public void setDataAgendamento(LocalDate dataAgendamento) {
 		this.dataAgendamento = dataAgendamento;
 	}
-	public Integer getIdCadastro() {
-		return idCadastro;
-	}
-	public void setIdCadastro(Integer idCadastro) {
-		this.idCadastro = idCadastro;
-	}
+
 	public List<LocacaoItemDto> getItens() {
 		return itens;
 	}

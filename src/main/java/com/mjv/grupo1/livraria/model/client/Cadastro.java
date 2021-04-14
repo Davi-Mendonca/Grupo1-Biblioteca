@@ -1,5 +1,7 @@
 package com.mjv.grupo1.livraria.model.client;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -15,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 //@NoArgsConstructor
 @Table(name = "cadastro")
-public class Cadastro {
+public class Cadastro implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

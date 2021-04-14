@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mjv.grupo1.livraria.model.library.DisponibilidadeStatus;
 import com.mjv.grupo1.livraria.model.library.Livro;
 
@@ -37,6 +38,7 @@ public class LocacaoItem {
 	@JoinColumn(name = "id_livro")
 	private Livro livro;
 
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "id_locacao")
 	private Locacao locacao;

@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mjv.grupo1.livraria.model.client.Cadastro;
 
 @Entity
@@ -32,14 +33,15 @@ public class Locacao {
 	private LocalDate dataAgendamento;
 	private LocalDate dataRetirada;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private LocalDate dataFinalizacao;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "locacao", cascade = CascadeType.PERSIST)
 	private List<LocacaoItem> itens = new ArrayList<LocacaoItem>();
 	
 	@ManyToOne
-	@JoinColumn(name = "id_cadastro")
+	@JoinColumn(name = "cpf", referencedColumnName = "cpf")
 	private Cadastro cadastro;
 	private Double valorTotal;
 	

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.mjv.grupo1.livraria.dto.LocacaoDto;
 import com.mjv.grupo1.livraria.dto.LocacaoItemDto;
+import com.mjv.grupo1.livraria.exception.config.BusinessException;
 import com.mjv.grupo1.livraria.exception.config.RegistroNaoLocalizadoException;
 import com.mjv.grupo1.livraria.model.client.Cadastro;
 import com.mjv.grupo1.livraria.model.library.DisponibilidadeStatus;
@@ -67,7 +68,10 @@ public class LocacaoService {
 	
 	public void gerarDevolucao(String cpf) {
 		
-		Locacao locacao = locRepository.findById(cadRepository.findByCpf(cpf).getId()).orElse(null);
+		Locacao locacao = locRepository.findByCadastroCpf(cpf);
+		
+		if (locacao.getStatus() == LocacaoStatus.FINALIZADA)
+			throw new BusinessException("Devolução já realizada.");
 		
 		for (LocacaoItem i : locacao.getItens()) {
 			Livro livro = livroService.buscarLivro(i.getLivro().getTitulo());
@@ -78,6 +82,7 @@ public class LocacaoService {
 			
 			livroRepository.save(livro);
 		}
+		
 		locacao.setDataFinalizacao(LocalDate.now());
 		locacao.setStatus(LocacaoStatus.FINALIZADA);
 		
@@ -86,7 +91,7 @@ public class LocacaoService {
 	
 	public Locacao consultarLocacao(String cpf) {
 		
-		Locacao locacao = locRepository.findById(cadRepository.findByCpf(cpf).getId()).orElse(null);
+		Locacao locacao = locRepository.findByCadastroCpf(cpf);
 		
 		for (LocacaoItem i : locacao.getItens()) {
 			i.getLivro().getTitulo();
@@ -103,9 +108,9 @@ public class LocacaoService {
 
 	// Cria uma locação pre configurada de acordo com as regras de negocio.
 	private Locacao preLocacao(LocacaoDto dto) {
-		Cadastro cadastro = cadRepository.findByCpf(dto.getCpf());
+		Cadastro cadastro = cadRepository.findByCpf(dto.getCpfCadastro());
 		if (cadastro == null)
-			throw new RegistroNaoLocalizadoException("Cadastro", dto.getCpf());
+			throw new RegistroNaoLocalizadoException("Cadastro", dto.getCpfCadastro());
 
 		Locacao locacao = new Locacao();
 

@@ -47,7 +47,7 @@ public class LivroController {
 	@DeleteMapping("/deletarlivros")
 	@ApiOperation(value = "Deleta um livro identificado pelo titulo")
 	public void deletarLivro(String titulo) {
-		repository.deleteByTitulo(titulo);
+		repository.deleteByTituloIgnoreCase(titulo);;
 	}
 	
 }

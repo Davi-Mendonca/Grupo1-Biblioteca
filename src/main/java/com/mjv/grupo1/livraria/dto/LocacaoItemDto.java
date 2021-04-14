@@ -3,7 +3,7 @@ package com.mjv.grupo1.livraria.dto;
 import java.time.LocalDate;
 
 public class LocacaoItemDto {
-	private Integer idLivro;
+//	private Integer idLivro;
 	private String titulo;
 	private LocalDate dataPrevisaoEntrega;
 	
@@ -13,12 +13,12 @@ public class LocacaoItemDto {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Integer getIdLivro() {
-		return idLivro;
-	}
-	public void setIdLivro(Integer idLivro) {
-		this.idLivro = idLivro;
-	}
+//	public Integer getIdLivro() {
+//		return idLivro;
+//	}
+//	public void setIdLivro(Integer idLivro) {
+//		this.idLivro = idLivro;
+//	}
 	public LocalDate getDataPrevisaoEntrega() {
 		return dataPrevisaoEntrega;
 	}

@@ -20,10 +20,10 @@ public class LivroService {
 	}
 	
 	public Livro buscarLivro(String titulo) {
-		if (repository.findByTitulo(titulo) == null)
+		if (repository.findByTituloIgnoreCase(titulo) == null)
 			throw new RegistroNaoLocalizadoException(titulo);
 		
-		return repository.findByTitulo(titulo);
+		return repository.findByTituloIgnoreCase(titulo);
 	}
 	
 	public boolean verificarDisponibilidade(String titulo) {
