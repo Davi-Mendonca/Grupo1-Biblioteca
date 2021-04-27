@@ -2,7 +2,7 @@ Este Projeto é fruto dos conhecimentos obtidos durante minha participação em 
 
 **Resumo**
 
-O projeto foi arquiteturado em REST e consiste basicamente em dispor um serviço de aluguel de livros, onde temos acesso a funcionalidades como cadastro e login de usuários, cadastro de novos exemplares, aluguel de exemplares e acompanhamento de uma locação ativa.
+O projeto foi arquitetado em REST e consiste basicamente em dispor um serviço de aluguel de livros, onde temos acesso a funcionalidades como cadastro e login de usuários, cadastro de novos exemplares, aluguel de exemplares e acompanhamento de uma locação ativa.
 
 **Estrutura do projeto:**
 
